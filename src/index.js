@@ -74,14 +74,16 @@ readFile(path.join(__dirname, 'android/app/src/main/res/values/strings.xml'))
       .version('2.2.2')
       .arguments('<newName>')
       .option('-b, --bundleID [value]', 'Set custom bundle identifier eg. "com.junedomingo.travelapp"')
+      .option('-d, --displayName [value]', 'Set custom display name')
       .action(newName => {
         const nS_NewName = newName.replace(/\s/g, '');
         const pattern = /^([0-9]|[a-z])+([0-9a-z\s]+)$/i;
         const lC_Ns_NewAppName = nS_NewName.toLowerCase();
         const bundleID = program.bundleID ? program.bundleID.toLowerCase() : null;
+        const displayName = program.displayName || '';
         let newBundlePath;
         const listOfFoldersAndFiles = foldersAndFiles(currentAppName, newName);
-        const listOfFilesToModifyContent = filesToModifyContent(currentAppName, newName, projectName);
+        const listOfFilesToModifyContent = filesToModifyContent(currentAppName, newName, displayName, projectName);
 
         if (bundleID) {
           newBundlePath = bundleID.replace(/\./g, '/');
