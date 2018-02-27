@@ -45,6 +45,10 @@
     "cheerio": "^0.22.0",
     "colors": "^1.1.2",
     "commander": "^2.9.0",
+    "mv": "^2.1.1",
+    "path-exists": "^3.0.0",
+    "project-name": "^0.2.6",
+    "replace": "^0.3.0",
     "node-replace": "^0.3.3",
     "shelljs": "^0.7.7"
   },
