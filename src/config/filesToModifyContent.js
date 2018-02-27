@@ -55,4 +55,5 @@ export function filesToModifyContent(currentAppName, newName, displayName, proje
 			paths: ['./app.json']
 		}
 	];
+
 }
