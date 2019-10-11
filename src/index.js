@@ -55,10 +55,10 @@ function moveJavaFiles(javaFiles, currentJavaPath, newBundlePath) {
 	}
 }
 
-readFile('./android/app/src/main/res/values/strings.xml')
-	.then(data => {
-		const $ = cheerio.load(data);
-		const currentAppName = $('string[name=app_name]').text();
+readFile('./app.json')
+	.then(function (data) {
+		const newData = JSON.parse(data) ;
+		const currentAppName = newData.name;
 		const nS_CurrentAppName = currentAppName.replace(/\s/g, '');
 		const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
 

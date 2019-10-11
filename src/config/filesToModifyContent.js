@@ -6,9 +6,8 @@ export function filesToModifyContent(currentAppName, newName, displayName, proje
 	const nS_NewName = newName.replace(/\s/g, '');
 	const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
 	const lC_Ns_NewName = nS_NewName.toLowerCase();
-	const nS_DisplayName = displayName.replace(/\s/g, '');
 
-	const nameUsedForDisplay = nS_DisplayName || nS_NewName;
+	const nameUsedForDisplay = displayName;
 
 	return [
 		{
