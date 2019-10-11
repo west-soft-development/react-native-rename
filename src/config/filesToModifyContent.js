@@ -30,7 +30,8 @@ export function filesToModifyContent(currentAppName, newName, displayName, proje
 				`./ios/${nS_NewName}Tests/${nS_NewName}Tests.m`,
 				'./ios/build/info.plist',
 				'./ios/Podfile',
-				'./app.json'
+				'./app.json',
+				`./ios/${nS_NewName}/Ebillet.entitlements`
 			]
 		},
 		{
