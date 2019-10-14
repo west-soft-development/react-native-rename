@@ -55,12 +55,18 @@ function moveJavaFiles(javaFiles, currentJavaPath, newBundlePath) {
   }
 }
 
+readFile('./android/app/src/main/res/values/strings.xml')
+	.then(function(data) {
+		const newData =  JSON.parse(currentDisplayData);
+		const currentDisplayName = newData.package;
+	})
+
 readFile('./app.json')
   .then(function(data) {
     const newData = JSON.parse(data);
     const currentAppName = newData.name;
     const nS_CurrentAppName = currentAppName.replace(/\s/g, '');
-    const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
+	const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
 
     program
       .version('2.1.5')
@@ -118,7 +124,7 @@ readFile('./app.json')
         });
 
         setTimeout(() => {
-          filesToModifyContent(currentAppName, newName, displayName, projectName).map(file => {
+          filesToModifyContent(currentAppName, newName, displayName, projectName, currentDisplayName).map(file => {
             file.paths.map((path, index) => {
               const newPaths = [];
               pathExists(path).then(exists => {

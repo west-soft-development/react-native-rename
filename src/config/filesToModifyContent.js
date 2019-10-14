@@ -1,7 +1,7 @@
 // nS - No Space
 // lC - Lowercase
 
-export function filesToModifyContent(currentAppName, newName, displayName, projectName) {
+export function filesToModifyContent(currentAppName, newName, displayName, projectName, currentDisplayName) {
   const nS_CurrentAppName = currentAppName.replace(/\s/g, '');
   const nS_NewName = newName.replace(/\s/g, '');
   const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
@@ -11,7 +11,7 @@ export function filesToModifyContent(currentAppName, newName, displayName, proje
 
   return [
     {
-      regex: `<string name="app_name">${currentAppName}</string>`,
+      regex: `<string name="app_name">${currentDisplayName}</string>`,
       replacement: `<string name="app_name">${nameUsedForDisplay}</string>`,
       paths: ['./android/app/src/main/res/values/strings.xml'],
     },
@@ -38,7 +38,7 @@ export function filesToModifyContent(currentAppName, newName, displayName, proje
       paths: [`./ios/${nS_NewName}/Base.lproj/LaunchScreen.xib`],
     },
     {
-      regex: currentAppName,
+      regex: currentDisplayName,
       replacement: nameUsedForDisplay,
       paths: [`./ios/${nS_NewName}/Info.plist`],
     },
