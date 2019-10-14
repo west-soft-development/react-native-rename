@@ -15,7 +15,7 @@ export function bundleIdentifiers(currentAppName, newName, projectName, currentB
         'android/app/BUCK',
         'android/app/build.gradle',
         'android/app/src/main/AndroidManifest.xml',
-        'ios/Ebillet/Ebillet.entitlements',
+        `ios/${projectName}/${projectName}.entitlements`,
       ],
     },
     {
