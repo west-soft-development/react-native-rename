@@ -183,6 +183,6 @@ readFile('./app.json')
   })
   .catch(err => {
     if (err.code === 'ENOENT') return console.log('Directory should be created using "react-native init"');
-    
-return console.log('Something went wrong: ', err);
+
+    return console.log('Something went wrong: ', err);
   });
