@@ -16,7 +16,7 @@ export function bundleIdentifiers(currentAppName, newName, projectName, currentB
     {
       regex: currentBundleID,
       replacement: newBundleID,
-      paths: [`ios/${nS_NewName}/${nS_NewName}.entitlements`],
+      paths: [`ios/${nS_NewName}/${nS_NewName}.entitlements`, `ios/${nS_NewName}/Info.plist`],
     },
     {
       regex: currentBundleID,
