@@ -14,7 +14,7 @@ export function bundleIdentifiers(currentAppName, newName, projectName, currentB
       paths: ['android/app/BUCK', 'android/app/build.gradle', 'android/app/src/main/AndroidManifest.xml'],
     },
     {
-      regex: '\w*' + currentBundleID,
+      regex: currentBundleID,
       replacement: newBundleID,
       paths: [`ios/${nS_NewName}/${nS_NewName}.entitlements`],
     },

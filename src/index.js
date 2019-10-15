@@ -55,12 +55,6 @@ function moveJavaFiles(javaFiles, currentJavaPath, newBundlePath) {
   }
 }
 
-readFile('./android/app/src/main/res/values/strings.xml')
-	.then(function(data) {
-		const newData =  JSON.parse(currentDisplayData);
-		const currentDisplayName = newData.package;
-	})
-
 readFile('./app.json')
   .then(function(data) {
     const newData = JSON.parse(data);
@@ -74,12 +68,18 @@ readFile('./app.json')
       .option('-b, --bundleID [value]', 'Set custom bundle identifier eg. "com.junedomingo.travelapp"')
       .option('-d, --displayName [value]', 'Set custom display name')
       .action(newName => {
+		const currentDisplayName = readFile('./android/app/src/main/res/values/strings.xml')
+		.then(function(data) {
+			const $ = cheerio.load(data);
+			return $('resources').attr('app_name');
+		});
         const nS_NewName = newName.replace(/\s/g, '');
         const pattern = /^([0-9]|[a-z])+([0-9a-z\s]+)$/i;
         const lC_Ns_NewAppName = nS_NewName.toLowerCase();
         const bundleID = program.bundleID ? program.bundleID.toLowerCase() : null;
         const displayName = program.displayName || '';
-        let newBundlePath;
+		let newBundlePath;
+		
 
         if (bundleID) {
           newBundlePath = bundleID.replace(/\./g, '/');
