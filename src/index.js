@@ -56,11 +56,11 @@ function moveJavaFiles(javaFiles, currentJavaPath, newBundlePath) {
 }
 
 readFile('./android/app/src/main/res/values/strings.xml')
-	.then(data => {
-		const $ = cheerio.load(data);
-		const currentAppName = $('string[name=app_name]').text();
-		const nS_CurrentAppName = currentAppName.replace(/\s/g, '');
-		const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
+  .then(data => {
+    const $ = cheerio.load(data);
+    const currentAppName = $('string[name=app_name]').text();
+    const nS_CurrentAppName = currentAppName.replace(/\s/g, '');
+    const lC_Ns_CurrentAppName = nS_CurrentAppName.toLowerCase();
 
     program
       .version('2.1.5')
@@ -73,7 +73,7 @@ readFile('./android/app/src/main/res/values/strings.xml')
         const lC_Ns_NewAppName = nS_NewName.toLowerCase();
         const bundleID = program.bundleID ? program.bundleID.toLowerCase() : null;
         const displayName = program.displayName || '';
-		let newBundlePath;
+        let newBundlePath;
 
         if (bundleID) {
           newBundlePath = bundleID.replace(/\./g, '/');
