@@ -11,8 +11,8 @@ export function filesToModifyContent(currentAppName, newName, displayName, proje
 
   return [
     {
-      regex: `<string name="app_name">${currentAppName}</string>`,
-      replacement: `<string name="app_name">${nameUsedForDisplay}</string>`,
+      regex: `<string name="app_name">"${currentAppName}"</string>`,
+      replacement: `<string name="app_name">"${nameUsedForDisplay}"</string>`,
       paths: ['./android/app/src/main/res/values/strings.xml'],
     },
     {
